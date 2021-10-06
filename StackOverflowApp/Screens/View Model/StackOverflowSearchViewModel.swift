@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 protocol StackOverflowSearchViewModelDelegate: NSObjectProtocol {
     func refreshViewContents()
     func showErrorAlert(with title: String?,
@@ -34,8 +33,13 @@ class StackOverflowSearchViewModel {
     }
     
     // MARK: - Mutators
-    func performRemoteSearch(with tag: String) {
-        interactor.searchForQuestions(with: tag) { [weak self] response in
+    func performRemoteSearch(with tagText: String?) {
+        guard let text = tagText,
+        !String.isNilOrWhitespace(text) else {
+            debugPrint("Cannot search for nil white space text")
+            return
+        }
+        interactor.searchForQuestions(with: text) { [weak self] response in
             self?.responseModel = response
             self?.delegate?.refreshViewContents()
         } failureBlock: { [weak self] error in

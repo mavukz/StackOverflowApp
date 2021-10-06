@@ -1,5 +1,5 @@
 //
-//  Array+Extension.swift
+//  Array+Extensions.swift
 //  StackOverflowApp
 //
 //  Created by Luntu Mavukuza on 2021/10/05.
