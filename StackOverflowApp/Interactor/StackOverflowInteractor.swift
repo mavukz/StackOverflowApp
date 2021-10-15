@@ -13,7 +13,8 @@ class StackOverflowInteractor: StackOverflowBoundary {
                             successBlock success: @escaping SuccessQuestionsResponseType,
                             failureBlock failure: @escaping FailureResponseType) {
         let webServicesManager = WebServicesManager.sharedInstance
-        let url = "https://api.stackexchange.com/2.2/questions?pagesize=20&order=desc&sort=activity&tagged=\(tag)%203&site=stackoverflow&filter=withbody"
+        let urlSafeTag = tag.replacingOccurrences(of: " ", with: "%20")
+        let url = "https://api.stackexchange.com/2.2/questions?pagesize=20&order=desc&sort=activity&tagged=\(urlSafeTag)%203&site=stackoverflow&filter=withbody"
         webServicesManager.GET(urlString: url) { data in
             guard let safeData = data else {
                 debugPrint("No data in interactor")

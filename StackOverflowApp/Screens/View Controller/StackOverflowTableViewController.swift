@@ -37,7 +37,7 @@ class StackOverflowTableViewController: UITableViewController {
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
+        super.init(style: .grouped)
     }
     
     // MARK: - Lifecycle
@@ -48,14 +48,13 @@ class StackOverflowTableViewController: UITableViewController {
     
     // MARK: - UITableViewDataSource
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let identifier = viewModel.identifier(for: indexPath) else { return UITableViewCell() }
-        switch identifier {
+        guard let rowType = viewModel.identifier(for: indexPath) else { return UITableViewCell() }
+        switch rowType {
         case .tagResultRow:
-            <#code#>
+            return createDetailTableViewCell(at: indexPath)
         case .emptyRow:
             return createEmptyStateTableViewCell()
         }
-        return UITableViewCell()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -65,10 +64,20 @@ class StackOverflowTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.visibleRows(for: section).count
     }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard let sectionType = viewModel.identifier(for: section) else { return .zero }
+        switch sectionType {
+        case .defaultSection:
+            return section == 0 ? 16 : .zero
+        case .emptySection:
+            return .zero
+        }
+    }
 
     // MARK: - UITableViewDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     // MARK: - UI Configuration
@@ -77,6 +86,7 @@ class StackOverflowTableViewController: UITableViewController {
         tableView.tableHeaderView = searchController.searchBar
         tableView.configureForDynamicHeightRows()
         tableView.sectionFooterHeight = 8
+        tableView.sectionHeaderHeight = 0
         tableView.register(UINib(nibName: "StackOverFlowEmptyTableViewCell", bundle: .main),
                            forCellReuseIdentifier: "StackOverFlowEmptyTableViewCell")
         tableView.register(UINib(nibName: "StackOverflowDetailTableViewCell", bundle: .main),
@@ -85,14 +95,17 @@ class StackOverflowTableViewController: UITableViewController {
     
     // MARK: - UITableViewCells Configuration
     private func createEmptyStateTableViewCell() -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StackOverFlowEmptyTableViewCell") as? StackOverFlowEmptyTableViewCell
-//        cell?.configure(with: viewModel.)
-        return cell ?? UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "StackOverFlowEmptyTableViewCell") as? StackOverFlowEmptyTableViewCell else { return UITableViewCell() }
+        cell.configure(with: viewModel.emptyStateMessage)
+        return cell
     }
     
-    private func createDetailTableViewCell() -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StackOverflowDetailTableViewCell") as? StackOverflowDetailTableViewCell
-        return cell ?? UITableViewCell()
+    private func createDetailTableViewCell(at indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "StackOverflowDetailTableViewCell") as? StackOverflowDetailTableViewCell,
+              let cellViewModel = viewModel.cellViewModel(at: indexPath) else { return UITableViewCell() }
+        cell.configure(with: cellViewModel)
+        cell.accessoryType = .disclosureIndicator
+        return cell
     }
 }
 

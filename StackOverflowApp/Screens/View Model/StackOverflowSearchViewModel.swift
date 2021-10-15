@@ -19,6 +19,7 @@ class StackOverflowSearchViewModel {
     private var responseModel: StackOverflowResponseModel?
     private weak var delegate: StackOverflowSearchViewModelDelegate?
     private let interactor: StackOverflowBoundary
+    private var cellViewModels: [StackOverflowCellViewModel]?
     
     // MARK: - Initializers
     init(with delegate: StackOverflowSearchViewModelDelegate,
@@ -32,6 +33,10 @@ class StackOverflowSearchViewModel {
         return createVisibleSections()
     }
     
+    var emptyStateMessage: String? {
+        return "Stack Overflow Search"
+    }
+    
     // MARK: - Mutators
     func performRemoteSearch(with tagText: String?) {
         guard let text = tagText,
@@ -41,6 +46,7 @@ class StackOverflowSearchViewModel {
         }
         interactor.searchForQuestions(with: text) { [weak self] response in
             self?.responseModel = response
+            self?.createCellViewModel(from: response)
             self?.delegate?.refreshViewContents()
         } failureBlock: { [weak self] error in
             self?.delegate?.showErrorAlert(with: "Error",
@@ -55,6 +61,15 @@ class StackOverflowSearchViewModel {
     
     func identifier(for indexPath: IndexPath) -> RowType? {
         return visibleRows(for: indexPath.section)[safe: indexPath.row]
+    }
+    
+    func cellViewModel(at indexPath: IndexPath) -> StackOverflowCellViewModel? {
+        guard let rowType = identifier(for: indexPath) else { return nil }
+        switch rowType {
+        case .tagResultRow:
+            return cellViewModels?[safe: indexPath.section]
+        default: return nil
+        }
     }
     
     func visibleRows(for section: Int) -> [RowType] {
@@ -72,7 +87,7 @@ class StackOverflowSearchViewModel {
     // MARK: - Visible Sections
     private func createVisibleSections() -> [SectionType] {
         var sections: [SectionType] = []
-        guard let results = responseModel?.items,
+        guard let results = cellViewModels,
               !results.isEmpty else { return [.emptySection] }
         for _ in results {
             sections.append(.defaultSection)
@@ -86,9 +101,25 @@ class StackOverflowSearchViewModel {
         rows.append(.tagResultRow)
         return rows
     }
+    
+    // MARK: - Cell ViewModels
+    private func createCellViewModel(from response: StackOverflowResponseModel?) {
+        guard let items = response?.items else {
+            debugPrint("No items to map in view model")
+            return
+        }
+        cellViewModels = []
+        for item in items {
+            let viewModel = StackOverflowCellViewModel(questionTitle: item.title,
+                                                       votesText: String.optionalIntToString(item.score),
+                                                       answersText: String.optionalIntToString(item.answerCount),
+                                                       viewsText: String.optionalIntToString(item.viewCount),
+                                                       askedByText: item.owner?.displayName)
+            cellViewModels?.append(viewModel)
+        }
+    }
 }
 
-// This approach is beneficial when theres dynamic sections and rows
 extension StackOverflowSearchViewModel {
     enum SectionType {
         case defaultSection

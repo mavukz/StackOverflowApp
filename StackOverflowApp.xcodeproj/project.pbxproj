@@ -38,6 +38,7 @@
 		4C92D7A9271486F000CBB675 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92D7A8271486F000CBB675 /* NibLoadable.swift */; };
 		4C92D7AB27148C2300CBB675 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92D7AA27148C2300CBB675 /* UIView+Extensions.swift */; };
 		4C9A4DDF271A10E400D2E8A7 /* Interactor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9A4DDE271A10E400D2E8A7 /* Interactor+Extensions.swift */; };
+		4C9A4DE1271A1B6A00D2E8A7 /* StackOverflowCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9A4DE0271A1B6A00D2E8A7 /* StackOverflowCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		4C92D7A8271486F000CBB675 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		4C92D7AA27148C2300CBB675 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		4C9A4DDE271A10E400D2E8A7 /* Interactor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interactor+Extensions.swift"; sourceTree = "<group>"; };
+		4C9A4DE0271A1B6A00D2E8A7 /* StackOverflowCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				4C696891270C0810000D1E27 /* StackOverflowSearchViewModel.swift */,
+				4C9A4DE0271A1B6A00D2E8A7 /* StackOverflowCellViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				4C92D78E270DF76700CBB675 /* String+Extensions.swift in Sources */,
 				4C92D7AB27148C2300CBB675 /* UIView+Extensions.swift in Sources */,
 				4C92D7A32714848F00CBB675 /* StackOverflowLoadingView.swift in Sources */,
+				4C9A4DE1271A1B6A00D2E8A7 /* StackOverflowCellViewModel.swift in Sources */,
 				4C92D797270E036B00CBB675 /* UIFont+Extensions.swift in Sources */,
 				4C696896270C1606000D1E27 /* Array+Extensions.swift in Sources */,
 				4C696881270B8033000D1E27 /* WebServicesManager.swift in Sources */,

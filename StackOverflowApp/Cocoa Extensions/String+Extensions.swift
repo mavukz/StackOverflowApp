@@ -12,4 +12,9 @@ extension String {
         guard let noNilText = text else { return true }
         return noNilText.trimmingCharacters(in: .whitespaces).isEmpty
     }
+    
+    static func optionalIntToString(_ int: Int?) -> String? {
+        guard let safeInt = int else { return nil }
+        return String(safeInt)
+    }
 }
