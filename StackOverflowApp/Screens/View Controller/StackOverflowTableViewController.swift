@@ -14,10 +14,21 @@ class StackOverflowTableViewController: UITableViewController {
     private lazy var viewModel = StackOverflowSearchViewModel(with: self,
                                                               interactor: StackOverflowInteractor())
     
-    private lazy var searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
-        searchBar.delegate = self
-        return searchBar
+    private lazy var searchController: UISearchController = {
+        let searchController = UISearchController()
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.barTintColor = UIColor.primaryBlueColor
+        searchController.searchBar.tintColor = .white
+        searchController.searchBar.searchTextField.backgroundColor = .white
+        
+        let centeredParagrahStyle = NSMutableParagraphStyle()
+        centeredParagrahStyle.alignment = .center
+        
+        searchController.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: "Search",
+                                                                                              attributes: [.paragraphStyle: centeredParagrahStyle])
+        searchController.searchBar.isTranslucent = true
+        searchController.searchBar.delegate = self
+        return searchController
     }()
     
     // MARK: - Initializers
@@ -37,6 +48,13 @@ class StackOverflowTableViewController: UITableViewController {
     
     // MARK: - UITableViewDataSource
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let identifier = viewModel.identifier(for: indexPath) else { return UITableViewCell() }
+        switch identifier {
+        case .tagResultRow:
+            <#code#>
+        case .emptyRow:
+            return createEmptyStateTableViewCell()
+        }
         return UITableViewCell()
     }
     
@@ -47,13 +65,34 @@ class StackOverflowTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.visibleRows(for: section).count
     }
+
+    // MARK: - UITableViewDelegate
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
     
     // MARK: - UI Configuration
     private func configureUI() {
         // add loading indicator
-        tableView.tableHeaderView = searchBar
+        tableView.tableHeaderView = searchController.searchBar
         tableView.configureForDynamicHeightRows()
         tableView.sectionFooterHeight = 8
+        tableView.register(UINib(nibName: "StackOverFlowEmptyTableViewCell", bundle: .main),
+                           forCellReuseIdentifier: "StackOverFlowEmptyTableViewCell")
+        tableView.register(UINib(nibName: "StackOverflowDetailTableViewCell", bundle: .main),
+                           forCellReuseIdentifier: "StackOverflowDetailTableViewCell")
+    }
+    
+    // MARK: - UITableViewCells Configuration
+    private func createEmptyStateTableViewCell() -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StackOverFlowEmptyTableViewCell") as? StackOverFlowEmptyTableViewCell
+//        cell?.configure(with: viewModel.)
+        return cell ?? UITableViewCell()
+    }
+    
+    private func createDetailTableViewCell() -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StackOverflowDetailTableViewCell") as? StackOverflowDetailTableViewCell
+        return cell ?? UITableViewCell()
     }
 }
 
@@ -61,7 +100,7 @@ class StackOverflowTableViewController: UITableViewController {
 extension StackOverflowTableViewController: StackOverflowSearchViewModelDelegate {
     
     func refreshViewContents() {
-        // remove loading indicator
+        view.removeLoadingView()
         tableView.reloadData()
     }
     
@@ -82,6 +121,7 @@ extension StackOverflowTableViewController: StackOverflowSearchViewModelDelegate
 extension StackOverflowTableViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.showLoadingView()
         viewModel.performRemoteSearch(with: searchBar.searchTextField.text)
     }
     

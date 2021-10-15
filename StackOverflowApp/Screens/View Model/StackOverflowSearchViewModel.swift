@@ -63,6 +63,8 @@ class StackOverflowSearchViewModel {
         switch sectionType {
         case .defaultSection:
             rows.append(contentsOf: rowsForDefaultSection())
+        case .emptySection:
+            rows.append(.emptyRow)
         }
         return rows
     }
@@ -70,7 +72,8 @@ class StackOverflowSearchViewModel {
     // MARK: - Visible Sections
     private func createVisibleSections() -> [SectionType] {
         var sections: [SectionType] = []
-        guard let results = responseModel?.items else { return sections }
+        guard let results = responseModel?.items,
+              !results.isEmpty else { return [.emptySection] }
         for _ in results {
             sections.append(.defaultSection)
         }
@@ -80,9 +83,7 @@ class StackOverflowSearchViewModel {
     // MARK: - Visible Rows
     private func rowsForDefaultSection() -> [RowType] {
         var rows: [RowType] = []
-        for _ in visibleSections {
-            rows.append(.tagResultRow)
-        }
+        rows.append(.tagResultRow)
         return rows
     }
 }
@@ -91,9 +92,11 @@ class StackOverflowSearchViewModel {
 extension StackOverflowSearchViewModel {
     enum SectionType {
         case defaultSection
+        case emptySection
     }
     
     enum RowType {
         case tagResultRow
+        case emptyRow
     }
 }

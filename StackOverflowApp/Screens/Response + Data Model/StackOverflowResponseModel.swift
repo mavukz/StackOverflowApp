@@ -8,9 +8,9 @@
 import Foundation
 
 struct StackOverflowResponseModel: Codable {
-    let items: [Item]
-    let hasMore: Bool
-    let quotaMax, quotaRemaining: Int
+    let items: [Item]?
+    let hasMore: Bool?
+    let quotaMax, quotaRemaining: Int?
 
     enum CodingKeys: String, CodingKey {
         case items
@@ -22,17 +22,16 @@ struct StackOverflowResponseModel: Codable {
 
 // MARK: - Item
 struct Item: Codable {
-    let tags: [String]
-    let owner: Owner
-    let isAnswered: Bool
-    let viewCount, answerCount, score, lastActivityDate: Int
-    let creationDate, questionID: Int
+    let tags: [String]?
+    let owner: Owner?
+    let isAnswered: Bool?
+    let viewCount, answerCount, score, lastActivityDate: Int?
+    let creationDate, questionID: Int?
     let contentLicense: ContentLicense?
-    let link: String
-    let title, body: String
-    let closedDate, acceptedAnswerID: Int?
+    let link: String?
+    let title, body: String?
+    let acceptedAnswerID, lastEditDate, closedDate: Int?
     let closedReason: String?
-    let lastEditDate: Int?
 
     enum CodingKeys: String, CodingKey {
         case tags, owner
@@ -45,10 +44,10 @@ struct Item: Codable {
         case questionID = "question_id"
         case contentLicense = "content_license"
         case link, title, body
-        case closedDate = "closed_date"
         case acceptedAnswerID = "accepted_answer_id"
-        case closedReason = "closed_reason"
         case lastEditDate = "last_edit_date"
+        case closedDate = "closed_date"
+        case closedReason = "closed_reason"
     }
 }
 
@@ -59,11 +58,11 @@ enum ContentLicense: String, Codable {
 
 // MARK: - Owner
 struct Owner: Codable {
-    let reputation, userID: Int
-    let userType: UserType
-    let profileImage: String
-    let displayName: String
-    let link: String
+    let reputation, userID: Int?
+    let userType: UserType?
+    let profileImage: String?
+    let displayName: String?
+    let link: String?
     let acceptRate: Int?
 
     enum CodingKeys: String, CodingKey {
@@ -77,7 +76,7 @@ struct Owner: Codable {
     }
 }
 
-// MARK: - UserType
 enum UserType: String, Codable {
+    case doesNotExist = "does_not_exist"
     case registered = "registered"
 }

@@ -21,8 +21,8 @@ class WebServicesManager {
             debugPrint("Invalid URL")
             return
         }
-                let urlRequest = URLRequest(url: url)
-                let session = URLSession.shared
+        let urlRequest = URLRequest(url: url)
+        let session = URLSession.shared
         let task = session.dataTask(with: urlRequest) { data, urlResponse, error in
             DispatchQueue.main.async {
                 guard let httpResponse = urlResponse as? HTTPURLResponse else {

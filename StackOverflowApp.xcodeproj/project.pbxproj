@@ -30,6 +30,14 @@
 		4C92D794270DFFBC00CBB675 /* StackOverflowDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92D792270DFFBC00CBB675 /* StackOverflowDetailTableViewCell.swift */; };
 		4C92D795270DFFBC00CBB675 /* StackOverflowDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C92D793270DFFBC00CBB675 /* StackOverflowDetailTableViewCell.xib */; };
 		4C92D797270E036B00CBB675 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92D796270E036B00CBB675 /* UIFont+Extensions.swift */; };
+		4C92D79A270E10C500CBB675 /* StackOverflowTableViewScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C92D799270E10C500CBB675 /* StackOverflowTableViewScreen.storyboard */; };
+		4C92D79D2710180E00CBB675 /* StackOverFlowEmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92D79B2710180E00CBB675 /* StackOverFlowEmptyTableViewCell.swift */; };
+		4C92D79E2710180E00CBB675 /* StackOverFlowEmptyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C92D79C2710180E00CBB675 /* StackOverFlowEmptyTableViewCell.xib */; };
+		4C92D7A32714848F00CBB675 /* StackOverflowLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92D7A22714848F00CBB675 /* StackOverflowLoadingView.swift */; };
+		4C92D7A6271484D000CBB675 /* StackOverflowLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C92D7A5271484D000CBB675 /* StackOverflowLoadingView.xib */; };
+		4C92D7A9271486F000CBB675 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92D7A8271486F000CBB675 /* NibLoadable.swift */; };
+		4C92D7AB27148C2300CBB675 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92D7AA27148C2300CBB675 /* UIView+Extensions.swift */; };
+		4C9A4DDF271A10E400D2E8A7 /* Interactor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9A4DDE271A10E400D2E8A7 /* Interactor+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +85,14 @@
 		4C92D792270DFFBC00CBB675 /* StackOverflowDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowDetailTableViewCell.swift; sourceTree = "<group>"; };
 		4C92D793270DFFBC00CBB675 /* StackOverflowDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StackOverflowDetailTableViewCell.xib; sourceTree = "<group>"; };
 		4C92D796270E036B00CBB675 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
+		4C92D799270E10C500CBB675 /* StackOverflowTableViewScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StackOverflowTableViewScreen.storyboard; sourceTree = "<group>"; };
+		4C92D79B2710180E00CBB675 /* StackOverFlowEmptyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverFlowEmptyTableViewCell.swift; sourceTree = "<group>"; };
+		4C92D79C2710180E00CBB675 /* StackOverFlowEmptyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StackOverFlowEmptyTableViewCell.xib; sourceTree = "<group>"; };
+		4C92D7A22714848F00CBB675 /* StackOverflowLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowLoadingView.swift; sourceTree = "<group>"; };
+		4C92D7A5271484D000CBB675 /* StackOverflowLoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StackOverflowLoadingView.xib; sourceTree = "<group>"; };
+		4C92D7A8271486F000CBB675 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		4C92D7AA27148C2300CBB675 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		4C9A4DDE271A10E400D2E8A7 /* Interactor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interactor+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,9 +143,11 @@
 		4C29C24A270B7E46000D6059 /* StackOverflowApp */ = {
 			isa = PBXGroup;
 			children = (
+				4C92D7A12714841B00CBB675 /* Shared Views */,
 				4C69687F270B7FD0000D1E27 /* Web Services Manager */,
 				4C69687E270B7F74000D1E27 /* Interactor */,
-				4C696885270BFE18000D1E27 /* Extensions */,
+				4C92D7A7271486CD00CBB675 /* General Extensions */,
+				4C696885270BFE18000D1E27 /* Cocoa Extensions */,
 				4C69687D270B7F5F000D1E27 /* Screens */,
 				4C29C24B270B7E46000D6059 /* AppDelegate.swift */,
 				4C29C24D270B7E46000D6059 /* SceneDelegate.swift */,
@@ -186,7 +204,7 @@
 			path = "Web Services Manager";
 			sourceTree = "<group>";
 		};
-		4C696885270BFE18000D1E27 /* Extensions */ = {
+		4C696885270BFE18000D1E27 /* Cocoa Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				4C696886270BFE29000D1E27 /* Error+Extensions.swift */,
@@ -195,8 +213,9 @@
 				4C92D78D270DF76700CBB675 /* String+Extensions.swift */,
 				4C92D78F270DFB7400CBB675 /* UIColor+Extensions.swift */,
 				4C92D796270E036B00CBB675 /* UIFont+Extensions.swift */,
+				4C92D7AA27148C2300CBB675 /* UIView+Extensions.swift */,
 			);
-			path = Extensions;
+			path = "Cocoa Extensions";
 			sourceTree = "<group>";
 		};
 		4C69688C270C0239000D1E27 /* View Model */ = {
@@ -220,6 +239,7 @@
 			children = (
 				4C92D791270DFF6A00CBB675 /* Table View Cell */,
 				4C696899270DEC57000D1E27 /* StackOverflowTableViewController.swift */,
+				4C92D799270E10C500CBB675 /* StackOverflowTableViewScreen.storyboard */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -227,10 +247,46 @@
 		4C92D791270DFF6A00CBB675 /* Table View Cell */ = {
 			isa = PBXGroup;
 			children = (
+				4C92D7A02710183300CBB675 /* Detail */,
+				4C92D79F2710181900CBB675 /* Empty State */,
+			);
+			path = "Table View Cell";
+			sourceTree = "<group>";
+		};
+		4C92D79F2710181900CBB675 /* Empty State */ = {
+			isa = PBXGroup;
+			children = (
+				4C92D79B2710180E00CBB675 /* StackOverFlowEmptyTableViewCell.swift */,
+				4C92D79C2710180E00CBB675 /* StackOverFlowEmptyTableViewCell.xib */,
+			);
+			path = "Empty State";
+			sourceTree = "<group>";
+		};
+		4C92D7A02710183300CBB675 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
 				4C92D792270DFFBC00CBB675 /* StackOverflowDetailTableViewCell.swift */,
 				4C92D793270DFFBC00CBB675 /* StackOverflowDetailTableViewCell.xib */,
 			);
-			path = "Table View Cell";
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		4C92D7A12714841B00CBB675 /* Shared Views */ = {
+			isa = PBXGroup;
+			children = (
+				4C92D7A22714848F00CBB675 /* StackOverflowLoadingView.swift */,
+				4C92D7A5271484D000CBB675 /* StackOverflowLoadingView.xib */,
+			);
+			path = "Shared Views";
+			sourceTree = "<group>";
+		};
+		4C92D7A7271486CD00CBB675 /* General Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4C92D7A8271486F000CBB675 /* NibLoadable.swift */,
+				4C9A4DDE271A10E400D2E8A7 /* Interactor+Extensions.swift */,
+			);
+			path = "General Extensions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,8 +393,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C92D79A270E10C500CBB675 /* StackOverflowTableViewScreen.storyboard in Resources */,
 				4C29C258270B7E48000D6059 /* LaunchScreen.storyboard in Resources */,
+				4C92D79E2710180E00CBB675 /* StackOverFlowEmptyTableViewCell.xib in Resources */,
 				4C92D795270DFFBC00CBB675 /* StackOverflowDetailTableViewCell.xib in Resources */,
+				4C92D7A6271484D000CBB675 /* StackOverflowLoadingView.xib in Resources */,
 				4C29C255270B7E48000D6059 /* Assets.xcassets in Resources */,
 				4C29C253270B7E46000D6059 /* Main.storyboard in Resources */,
 			);
@@ -367,11 +426,16 @@
 			files = (
 				4C696887270BFE29000D1E27 /* Error+Extensions.swift in Sources */,
 				4C92D78E270DF76700CBB675 /* String+Extensions.swift in Sources */,
+				4C92D7AB27148C2300CBB675 /* UIView+Extensions.swift in Sources */,
+				4C92D7A32714848F00CBB675 /* StackOverflowLoadingView.swift in Sources */,
 				4C92D797270E036B00CBB675 /* UIFont+Extensions.swift in Sources */,
 				4C696896270C1606000D1E27 /* Array+Extensions.swift in Sources */,
 				4C696881270B8033000D1E27 /* WebServicesManager.swift in Sources */,
+				4C9A4DDF271A10E400D2E8A7 /* Interactor+Extensions.swift in Sources */,
 				4C92D78C270DF0A500CBB675 /* UITableView+Extensions.swift in Sources */,
 				4C69688F270C02C5000D1E27 /* StackOverflowResponseModel.swift in Sources */,
+				4C92D7A9271486F000CBB675 /* NibLoadable.swift in Sources */,
+				4C92D79D2710180E00CBB675 /* StackOverFlowEmptyTableViewCell.swift in Sources */,
 				4C29C250270B7E46000D6059 /* ViewController.swift in Sources */,
 				4C69688B270BFFBD000D1E27 /* StackOverflowBoundary.swift in Sources */,
 				4C69689A270DEC57000D1E27 /* StackOverflowTableViewController.swift in Sources */,
@@ -564,7 +628,7 @@
 				INFOPLIST_FILE = StackOverflowApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = StackOverflowTableViewScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -592,7 +656,7 @@
 				INFOPLIST_FILE = StackOverflowApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = StackOverflowTableViewScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
