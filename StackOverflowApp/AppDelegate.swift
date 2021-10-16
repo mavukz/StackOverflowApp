@@ -15,11 +15,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         let storyboard = UIStoryboard(name: "StackOverflowTableViewScreen", bundle: .main)
-        let controller = storyboard.instantiateInitialViewController()
-        controller?.navigationController?.setNavigationBarHidden(true, animated: false)
-        window?.rootViewController = controller
+        let navigationController = storyboard.instantiateInitialViewController() as? UINavigationController
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+        configureConstantAppearances()
         return true
+    }
+    
+    private func configureConstantAppearances() {
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = UIColor.primaryBlueColor
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }
 
 }

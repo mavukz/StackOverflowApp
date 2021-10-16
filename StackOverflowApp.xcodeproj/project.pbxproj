@@ -37,6 +37,7 @@
 		4C92D7A6271484D000CBB675 /* StackOverflowLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C92D7A5271484D000CBB675 /* StackOverflowLoadingView.xib */; };
 		4C92D7A9271486F000CBB675 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92D7A8271486F000CBB675 /* NibLoadable.swift */; };
 		4C92D7AB27148C2300CBB675 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92D7AA27148C2300CBB675 /* UIView+Extensions.swift */; };
+		4C95236E271A4C8D00EF5D23 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C95236D271A4C8D00EF5D23 /* UIViewController+Extensions.swift */; };
 		4C9A4DDF271A10E400D2E8A7 /* Interactor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9A4DDE271A10E400D2E8A7 /* Interactor+Extensions.swift */; };
 		4C9A4DE1271A1B6A00D2E8A7 /* StackOverflowCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9A4DE0271A1B6A00D2E8A7 /* StackOverflowCellViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -93,6 +94,7 @@
 		4C92D7A5271484D000CBB675 /* StackOverflowLoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StackOverflowLoadingView.xib; sourceTree = "<group>"; };
 		4C92D7A8271486F000CBB675 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		4C92D7AA27148C2300CBB675 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		4C95236D271A4C8D00EF5D23 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		4C9A4DDE271A10E400D2E8A7 /* Interactor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interactor+Extensions.swift"; sourceTree = "<group>"; };
 		4C9A4DE0271A1B6A00D2E8A7 /* StackOverflowCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -216,6 +218,7 @@
 				4C92D78F270DFB7400CBB675 /* UIColor+Extensions.swift */,
 				4C92D796270E036B00CBB675 /* UIFont+Extensions.swift */,
 				4C92D7AA27148C2300CBB675 /* UIView+Extensions.swift */,
+				4C95236D271A4C8D00EF5D23 /* UIViewController+Extensions.swift */,
 			);
 			path = "Cocoa Extensions";
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				4C29C250270B7E46000D6059 /* ViewController.swift in Sources */,
 				4C69688B270BFFBD000D1E27 /* StackOverflowBoundary.swift in Sources */,
 				4C69689A270DEC57000D1E27 /* StackOverflowTableViewController.swift in Sources */,
+				4C95236E271A4C8D00EF5D23 /* UIViewController+Extensions.swift in Sources */,
 				4C696892270C0810000D1E27 /* StackOverflowSearchViewModel.swift in Sources */,
 				4C29C24C270B7E46000D6059 /* AppDelegate.swift in Sources */,
 				4C92D790270DFB7400CBB675 /* UIColor+Extensions.swift in Sources */,

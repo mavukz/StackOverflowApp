@@ -26,7 +26,7 @@ class StackOverflowTableViewController: UITableViewController {
         
         searchController.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: "Search",
                                                                                               attributes: [.paragraphStyle: centeredParagrahStyle])
-        searchController.searchBar.isTranslucent = true
+        searchController.searchBar.isTranslucent = false
         searchController.searchBar.delegate = self
         return searchController
     }()
@@ -37,7 +37,7 @@ class StackOverflowTableViewController: UITableViewController {
     }
     
     required init?(coder: NSCoder) {
-        super.init(style: .grouped)
+        super.init(coder: coder)
     }
     
     // MARK: - Lifecycle
@@ -45,6 +45,9 @@ class StackOverflowTableViewController: UITableViewController {
         super.viewDidLoad()
         configureUI()
     }
+    
+    // MARK: - StatusBarStyle
+    
     
     // MARK: - UITableViewDataSource
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -87,10 +90,12 @@ class StackOverflowTableViewController: UITableViewController {
         tableView.configureForDynamicHeightRows()
         tableView.sectionFooterHeight = 8
         tableView.sectionHeaderHeight = 0
+        tableView.bounces = false
         tableView.register(UINib(nibName: "StackOverFlowEmptyTableViewCell", bundle: .main),
                            forCellReuseIdentifier: "StackOverFlowEmptyTableViewCell")
         tableView.register(UINib(nibName: "StackOverflowDetailTableViewCell", bundle: .main),
                            forCellReuseIdentifier: "StackOverflowDetailTableViewCell")
+        self.navigationController?.setStatusBar(backgroundColor: UIColor.primaryBlueColor)
     }
     
     // MARK: - UITableViewCells Configuration
