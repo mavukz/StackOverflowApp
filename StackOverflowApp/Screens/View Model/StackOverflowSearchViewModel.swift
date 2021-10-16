@@ -37,6 +37,11 @@ class StackOverflowSearchViewModel {
         return "Stack Overflow Search"
     }
     
+    var hasData: Bool {
+        guard let viewModels = cellViewModels else { return false }
+        return !viewModels.isEmpty
+    }
+    
     // MARK: - Mutators
     func performRemoteSearch(with tagText: String?) {
         guard let text = tagText,

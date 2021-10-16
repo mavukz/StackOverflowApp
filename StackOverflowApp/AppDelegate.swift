@@ -14,8 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let storyboard = UIStoryboard(name: "StackOverflowTableViewScreen", bundle: .main)
+        let storyboard = UIStoryboard(name: "MainNavigationController", bundle: .main)
         let navigationController = storyboard.instantiateInitialViewController() as? UINavigationController
+        let resultsController = StackOverflowTableViewController()
+        navigationController?.viewControllers = [resultsController]
         navigationController?.setNavigationBarHidden(true, animated: false)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
@@ -28,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appearance.backgroundColor = UIColor.primaryBlueColor
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().tintColor = .white
+        
     }
 
 }

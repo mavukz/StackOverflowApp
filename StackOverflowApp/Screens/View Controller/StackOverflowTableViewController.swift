@@ -36,6 +36,7 @@ class StackOverflowTableViewController: UITableViewController {
         super.init(style: .grouped)
     }
     
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
@@ -46,8 +47,14 @@ class StackOverflowTableViewController: UITableViewController {
         configureUI()
     }
     
-    // MARK: - StatusBarStyle
+    func f(c: Character, i: Int) -> (String, Double) {
+        return (String(c), Double(i))
+    }
     
+    // MARK: - StatusBarStyle
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     // MARK: - UITableViewDataSource
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,6 +63,7 @@ class StackOverflowTableViewController: UITableViewController {
         case .tagResultRow:
             return createDetailTableViewCell(at: indexPath)
         case .emptyRow:
+            tableView.isScrollEnabled = false
             return createEmptyStateTableViewCell()
         }
     }
@@ -76,6 +84,11 @@ class StackOverflowTableViewController: UITableViewController {
         case .emptySection:
             return .zero
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let rowType = viewModel.identifier(for: indexPath) else { return UITableView.automaticDimension }
+        return rowType == .emptyRow ? calculateEmptyStatusViewHeight() : UITableView.automaticDimension
     }
 
     // MARK: - UITableViewDelegate
@@ -112,6 +125,12 @@ class StackOverflowTableViewController: UITableViewController {
         cell.accessoryType = .disclosureIndicator
         return cell
     }
+    
+    private func calculateEmptyStatusViewHeight() -> CGFloat {
+        return tableView.frame.height -
+        (tableView.tableHeaderView?.frame.height ?? 0) -
+        (view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0)
+    }
 }
 
 // MARK: - StackOverflowSearchViewModelDelegate
@@ -120,6 +139,7 @@ extension StackOverflowTableViewController: StackOverflowSearchViewModelDelegate
     func refreshViewContents() {
         view.removeLoadingView()
         tableView.reloadData()
+        tableView.isScrollEnabled = viewModel.hasData
     }
     
     func showErrorAlert(with title: String?, errorMessage: String?) {

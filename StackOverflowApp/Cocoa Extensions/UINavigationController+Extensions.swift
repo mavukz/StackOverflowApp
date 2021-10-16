@@ -1,5 +1,5 @@
 //
-//  UIViewController+Extensions.swift
+//  UINavigationController+Extensions.swift
 //  StackOverflowApp
 //
 //  Created by Luntu Mavukuza on 2021/10/16.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension UIViewController {
+extension UINavigationController {
     
     func setStatusBar(backgroundColor: UIColor?) {
           let statusBarFrame: CGRect
