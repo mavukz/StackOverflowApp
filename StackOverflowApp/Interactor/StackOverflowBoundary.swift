@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias SuccessQuestionsResponseType = (StackOverflowResponseModel?) -> Void
+typealias SuccessQuestionsResponseType = ([StackOverflowDataModalable]?) -> Void
 
 protocol StackOverflowBoundary {
     

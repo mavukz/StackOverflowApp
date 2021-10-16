@@ -36,7 +36,6 @@ class StackOverflowTableViewController: UITableViewController {
         super.init(style: .grouped)
     }
     
-    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
@@ -123,13 +122,13 @@ class StackOverflowTableViewController: UITableViewController {
               let cellViewModel = viewModel.cellViewModel(at: indexPath) else { return UITableViewCell() }
         cell.configure(with: cellViewModel)
         cell.accessoryType = .disclosureIndicator
+        
         return cell
     }
     
     private func calculateEmptyStatusViewHeight() -> CGFloat {
         return tableView.frame.height -
-        (tableView.tableHeaderView?.frame.height ?? 0) -
-        (view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0)
+        (tableView.tableHeaderView?.frame.height ?? 0)
     }
 }
 

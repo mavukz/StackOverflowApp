@@ -23,9 +23,20 @@ class StackOverflowInteractor: StackOverflowBoundary {
                 return
             }
             let response: StackOverflowResponseModel? = self.decode(data: safeData)
-            success(response)
+            let dataModels = self.mapResponseModelItemsToDataModels(response)
+            success(dataModels)
         } failureBlock: { error in
             failure(error)
         }
+    }
+    
+    func mapResponseModelItemsToDataModels(_ responseModel: StackOverflowResponseModel?) -> [StackOverflowDataModalable]? {
+        guard let items = responseModel?.items else { return nil }
+        var dataModels: [StackOverflowDataModelV1] = []
+        for item in items {
+            let dataModel = StackOverflowDataModelV1(with: item)
+            dataModels.append(dataModel)
+        }
+        return dataModels
     }
 }

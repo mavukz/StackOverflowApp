@@ -39,6 +39,8 @@
 		4C92D7AB27148C2300CBB675 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C92D7AA27148C2300CBB675 /* UIView+Extensions.swift */; };
 		4C95236E271A4C8D00EF5D23 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C95236D271A4C8D00EF5D23 /* UINavigationController+Extensions.swift */; };
 		4C952371271B21C900EF5D23 /* MainNavigationController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C952370271B21C900EF5D23 /* MainNavigationController.storyboard */; };
+		4C952375271B8D3400EF5D23 /* StackOverflowDataModalable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C952374271B8D3400EF5D23 /* StackOverflowDataModalable.swift */; };
+		4C952377271B950200EF5D23 /* StackOverflowDataModelV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C952376271B950200EF5D23 /* StackOverflowDataModelV1.swift */; };
 		4C9A4DDF271A10E400D2E8A7 /* Interactor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9A4DDE271A10E400D2E8A7 /* Interactor+Extensions.swift */; };
 		4C9A4DE1271A1B6A00D2E8A7 /* StackOverflowCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9A4DE0271A1B6A00D2E8A7 /* StackOverflowCellViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -97,6 +99,8 @@
 		4C92D7AA27148C2300CBB675 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		4C95236D271A4C8D00EF5D23 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
 		4C952370271B21C900EF5D23 /* MainNavigationController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainNavigationController.storyboard; sourceTree = "<group>"; };
+		4C952374271B8D3400EF5D23 /* StackOverflowDataModalable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowDataModalable.swift; sourceTree = "<group>"; };
+		4C952376271B950200EF5D23 /* StackOverflowDataModelV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowDataModelV1.swift; sourceTree = "<group>"; };
 		4C9A4DDE271A10E400D2E8A7 /* Interactor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interactor+Extensions.swift"; sourceTree = "<group>"; };
 		4C9A4DE0271A1B6A00D2E8A7 /* StackOverflowCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -186,9 +190,8 @@
 		4C69687D270B7F5F000D1E27 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				4C696890270C0701000D1E27 /* View Controller */,
-				4C69688C270C0239000D1E27 /* View Model */,
-				4C69688D270C02A4000D1E27 /* Response + Data Model */,
+				4C952372271B8C8800EF5D23 /* Search Screen */,
+				4C952373271B8CB900EF5D23 /* Detailed Screen */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -238,6 +241,8 @@
 			isa = PBXGroup;
 			children = (
 				4C69688E270C02C5000D1E27 /* StackOverflowResponseModel.swift */,
+				4C952374271B8D3400EF5D23 /* StackOverflowDataModalable.swift */,
+				4C952376271B950200EF5D23 /* StackOverflowDataModelV1.swift */,
 			);
 			path = "Response + Data Model";
 			sourceTree = "<group>";
@@ -296,6 +301,23 @@
 				4C9A4DDE271A10E400D2E8A7 /* Interactor+Extensions.swift */,
 			);
 			path = "General Extensions";
+			sourceTree = "<group>";
+		};
+		4C952372271B8C8800EF5D23 /* Search Screen */ = {
+			isa = PBXGroup;
+			children = (
+				4C696890270C0701000D1E27 /* View Controller */,
+				4C69688C270C0239000D1E27 /* View Model */,
+				4C69688D270C02A4000D1E27 /* Response + Data Model */,
+			);
+			path = "Search Screen";
+			sourceTree = "<group>";
+		};
+		4C952373271B8CB900EF5D23 /* Detailed Screen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Detailed Screen";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,7 +456,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C952375271B8D3400EF5D23 /* StackOverflowDataModalable.swift in Sources */,
 				4C696887270BFE29000D1E27 /* Error+Extensions.swift in Sources */,
+				4C952377271B950200EF5D23 /* StackOverflowDataModelV1.swift in Sources */,
 				4C92D78E270DF76700CBB675 /* String+Extensions.swift in Sources */,
 				4C92D7AB27148C2300CBB675 /* UIView+Extensions.swift in Sources */,
 				4C92D7A32714848F00CBB675 /* StackOverflowLoadingView.swift in Sources */,

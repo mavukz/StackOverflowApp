@@ -16,7 +16,7 @@ protocol StackOverflowSearchViewModelDelegate: NSObjectProtocol {
 class StackOverflowSearchViewModel {
     
     // MARK: - Instance Fields
-    private var responseModel: StackOverflowResponseModel?
+    private var dataModels: [StackOverflowDataModalable]?
     private weak var delegate: StackOverflowSearchViewModelDelegate?
     private let interactor: StackOverflowBoundary
     private var cellViewModels: [StackOverflowCellViewModel]?
@@ -49,9 +49,9 @@ class StackOverflowSearchViewModel {
             debugPrint("Cannot search for nil white space text")
             return
         }
-        interactor.searchForQuestions(with: text) { [weak self] response in
-            self?.responseModel = response
-            self?.createCellViewModel(from: response)
+        interactor.searchForQuestions(with: text) { [weak self] dataModels in
+            self?.dataModels = dataModels
+            self?.createCellViewModel(from: dataModels)
             self?.delegate?.refreshViewContents()
         } failureBlock: { [weak self] error in
             self?.delegate?.showErrorAlert(with: "Error",
@@ -108,8 +108,8 @@ class StackOverflowSearchViewModel {
     }
     
     // MARK: - Cell ViewModels
-    private func createCellViewModel(from response: StackOverflowResponseModel?) {
-        guard let items = response?.items else {
+    private func createCellViewModel(from dataModels: [StackOverflowDataModalable]?) {
+        guard let items = dataModels else {
             debugPrint("No items to map in view model")
             return
         }
