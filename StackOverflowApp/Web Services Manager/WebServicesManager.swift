@@ -7,9 +7,6 @@
 
 import Foundation
 
-typealias SuccessDataResponseType = (_ successResponse: Data?) -> Void
-typealias FailureResponseType = (_ error: Error?) -> Void
-
 class WebServicesManager {
     
     static let sharedInstance = WebServicesManager()

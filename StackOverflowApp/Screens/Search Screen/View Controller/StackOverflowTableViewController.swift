@@ -113,6 +113,7 @@ class StackOverflowTableViewController: UITableViewController {
     // MARK: - UITableViewCells Configuration
     private func createEmptyStateTableViewCell() -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "StackOverFlowEmptyTableViewCell") as? StackOverFlowEmptyTableViewCell else { return UITableViewCell() }
+        cell.selectionStyle = .none
         cell.configure(with: viewModel.emptyStateMessage)
         return cell
     }

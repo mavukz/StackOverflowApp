@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct StackOverflowDataModelV1: StackOverflowDataModalable {
+class StackOverflowDataModelV1: StackOverflowDataModalable {
     var tags: [String]?
     var owner: Owner?
     var isAnswered: Bool?

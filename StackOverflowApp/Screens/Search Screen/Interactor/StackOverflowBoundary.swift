@@ -14,4 +14,8 @@ protocol StackOverflowBoundary {
     func searchForQuestions(with tag: String,
                             successBlock success: @escaping SuccessQuestionsResponseType,
                             failureBlock failure: @escaping FailureResponseType)
+    
+    func searchForProfileImage(with imageUrl: String,
+                               successBlock success: @escaping SuccessDataResponseType,
+                               failureBlock failure: @escaping FailureResponseType)
 }

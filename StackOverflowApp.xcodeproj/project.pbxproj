@@ -48,6 +48,8 @@
 		4CB7E3A1271C6F2F0052A129 /* StackOverflowProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CB7E3A0271C6F2F0052A129 /* StackOverflowProfileView.xib */; };
 		4CB7E3A3271C70080052A129 /* StackOverflowProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB7E3A2271C70080052A129 /* StackOverflowProfileView.swift */; };
 		4CB7E3A7271C706E0052A129 /* BaseComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB7E3A6271C706E0052A129 /* BaseComponentView.swift */; };
+		4CB7E3AA271C77E60052A129 /* StackOverflowDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB7E3A9271C77E60052A129 /* StackOverflowDetailViewModel.swift */; };
+		4CB7E3AC271C8D9A0052A129 /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB7E3AB271C8D9A0052A129 /* TypeAliases.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,8 @@
 		4CB7E3A0271C6F2F0052A129 /* StackOverflowProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StackOverflowProfileView.xib; sourceTree = "<group>"; };
 		4CB7E3A2271C70080052A129 /* StackOverflowProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowProfileView.swift; sourceTree = "<group>"; };
 		4CB7E3A6271C706E0052A129 /* BaseComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseComponentView.swift; sourceTree = "<group>"; };
+		4CB7E3A9271C77E60052A129 /* StackOverflowDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowDetailViewModel.swift; sourceTree = "<group>"; };
+		4CB7E3AB271C8D9A0052A129 /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,7 +169,6 @@
 			children = (
 				4C92D7A12714841B00CBB675 /* Shared Views */,
 				4C69687F270B7FD0000D1E27 /* Web Services Manager */,
-				4C69687E270B7F74000D1E27 /* Interactor */,
 				4C92D7A7271486CD00CBB675 /* General Extensions */,
 				4C696885270BFE18000D1E27 /* Cocoa Extensions */,
 				4C69687D270B7F5F000D1E27 /* Screens */,
@@ -310,6 +313,7 @@
 			children = (
 				4C92D7A8271486F000CBB675 /* NibLoadable.swift */,
 				4C9A4DDE271A10E400D2E8A7 /* Interactor+Extensions.swift */,
+				4CB7E3AB271C8D9A0052A129 /* TypeAliases.swift */,
 			);
 			path = "General Extensions";
 			sourceTree = "<group>";
@@ -317,8 +321,9 @@
 		4C952372271B8C8800EF5D23 /* Search Screen */ = {
 			isa = PBXGroup;
 			children = (
-				4C696890270C0701000D1E27 /* View Controller */,
 				4C69688C270C0239000D1E27 /* View Model */,
+				4C696890270C0701000D1E27 /* View Controller */,
+				4C69687E270B7F74000D1E27 /* Interactor */,
 				4C69688D270C02A4000D1E27 /* Response + Data Model */,
 			);
 			path = "Search Screen";
@@ -327,6 +332,7 @@
 		4C952373271B8CB900EF5D23 /* Detailed Screen */ = {
 			isa = PBXGroup;
 			children = (
+				4CB7E3A8271C77CA0052A129 /* View Model */,
 				4C952378271B9DDA00EF5D23 /* View Controller */,
 			);
 			path = "Detailed Screen";
@@ -373,6 +379,14 @@
 				4CB7E3A6271C706E0052A129 /* BaseComponentView.swift */,
 			);
 			path = "Base View";
+			sourceTree = "<group>";
+		};
+		4CB7E3A8271C77CA0052A129 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				4CB7E3A9271C77E60052A129 /* StackOverflowDetailViewModel.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -531,7 +545,9 @@
 				4C92D7A9271486F000CBB675 /* NibLoadable.swift in Sources */,
 				4C92D79D2710180E00CBB675 /* StackOverFlowEmptyTableViewCell.swift in Sources */,
 				4C29C250270B7E46000D6059 /* ViewController.swift in Sources */,
+				4CB7E3AC271C8D9A0052A129 /* TypeAliases.swift in Sources */,
 				4C95237C271B9E2000EF5D23 /* StackOverflowDetailViewController.swift in Sources */,
+				4CB7E3AA271C77E60052A129 /* StackOverflowDetailViewModel.swift in Sources */,
 				4C69688B270BFFBD000D1E27 /* StackOverflowBoundary.swift in Sources */,
 				4C69689A270DEC57000D1E27 /* StackOverflowTableViewController.swift in Sources */,
 				4C95236E271A4C8D00EF5D23 /* UINavigationController+Extensions.swift in Sources */,

@@ -30,6 +30,18 @@ class StackOverflowInteractor: StackOverflowBoundary {
         }
     }
     
+    func searchForProfileImage(with imageUrl: String,
+                               successBlock success: @escaping SuccessDataResponseType,
+                               failureBlock failure: @escaping FailureResponseType) {
+        let webServicesManager = WebServicesManager.sharedInstance
+        webServicesManager.GET(urlString: imageUrl) { successResponse in
+            success(successResponse)
+        } failureBlock: { error in
+            failure(error)
+        }
+
+    }
+    
     func mapResponseModelItemsToDataModels(_ responseModel: StackOverflowResponseModel?) -> [StackOverflowDataModalable]? {
         guard let items = responseModel?.items else { return nil }
         var dataModels: [StackOverflowDataModelV1] = []

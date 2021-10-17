@@ -19,10 +19,18 @@ class StackOverflowDetailViewController: UIViewController {
     @IBOutlet private var thirdSeparatorView: UIView!
     @IBOutlet private var profileView: StackOverflowProfileView!
     
+    // MARK: - Instance attributes
+    private lazy var viewModel = StackOverflowDetailViewModel(dataModel: dataModel, interactor: StackOverflowInteractor())
+    private var dataModel: StackOverflowDataModalable!
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+    }
+    
+    // MARK: - Mutators
+    private func configure(with dataModel: StackOverflowDataModalable) {
+        self.dataModel = dataModel
     }
     
     // MARK: - Private
