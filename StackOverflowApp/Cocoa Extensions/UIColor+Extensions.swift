@@ -38,7 +38,8 @@ extension UIColor {
 
 // MARK: - Color Palette
 extension UIColor {
-    
     static let primaryBlueColor = UIColor(hex: "#4078C4")
     static let primaryGrayColor = UIColor(hex: "#8F8E94")
+    static let darkerGrayColor = UIColor(hex: "#727272")
+    static let backgroundGrayColor = UIColor(red: 237, green: 237, blue: 237, alpha: 1)
 }
