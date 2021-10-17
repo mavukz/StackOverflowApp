@@ -41,6 +41,8 @@
 		4C952371271B21C900EF5D23 /* MainNavigationController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C952370271B21C900EF5D23 /* MainNavigationController.storyboard */; };
 		4C952375271B8D3400EF5D23 /* StackOverflowDataModalable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C952374271B8D3400EF5D23 /* StackOverflowDataModalable.swift */; };
 		4C952377271B950200EF5D23 /* StackOverflowDataModelV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C952376271B950200EF5D23 /* StackOverflowDataModelV1.swift */; };
+		4C95237A271B9DFF00EF5D23 /* StackOverflowDetailScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C952379271B9DFF00EF5D23 /* StackOverflowDetailScreen.storyboard */; };
+		4C95237C271B9E2000EF5D23 /* StackOverflowDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C95237B271B9E2000EF5D23 /* StackOverflowDetailViewController.swift */; };
 		4C9A4DDF271A10E400D2E8A7 /* Interactor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9A4DDE271A10E400D2E8A7 /* Interactor+Extensions.swift */; };
 		4C9A4DE1271A1B6A00D2E8A7 /* StackOverflowCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9A4DE0271A1B6A00D2E8A7 /* StackOverflowCellViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -101,6 +103,8 @@
 		4C952370271B21C900EF5D23 /* MainNavigationController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainNavigationController.storyboard; sourceTree = "<group>"; };
 		4C952374271B8D3400EF5D23 /* StackOverflowDataModalable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowDataModalable.swift; sourceTree = "<group>"; };
 		4C952376271B950200EF5D23 /* StackOverflowDataModelV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowDataModelV1.swift; sourceTree = "<group>"; };
+		4C952379271B9DFF00EF5D23 /* StackOverflowDetailScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StackOverflowDetailScreen.storyboard; sourceTree = "<group>"; };
+		4C95237B271B9E2000EF5D23 /* StackOverflowDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowDetailViewController.swift; sourceTree = "<group>"; };
 		4C9A4DDE271A10E400D2E8A7 /* Interactor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interactor+Extensions.swift"; sourceTree = "<group>"; };
 		4C9A4DE0271A1B6A00D2E8A7 /* StackOverflowCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverflowCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -316,8 +320,18 @@
 		4C952373271B8CB900EF5D23 /* Detailed Screen */ = {
 			isa = PBXGroup;
 			children = (
+				4C952378271B9DDA00EF5D23 /* View Controller */,
 			);
 			path = "Detailed Screen";
+			sourceTree = "<group>";
+		};
+		4C952378271B9DDA00EF5D23 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4C952379271B9DFF00EF5D23 /* StackOverflowDetailScreen.storyboard */,
+				4C95237B271B9E2000EF5D23 /* StackOverflowDetailViewController.swift */,
+			);
+			path = "View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,6 +440,7 @@
 			files = (
 				4C92D79A270E10C500CBB675 /* StackOverflowTableViewScreen.storyboard in Resources */,
 				4C29C258270B7E48000D6059 /* LaunchScreen.storyboard in Resources */,
+				4C95237A271B9DFF00EF5D23 /* StackOverflowDetailScreen.storyboard in Resources */,
 				4C92D79E2710180E00CBB675 /* StackOverFlowEmptyTableViewCell.xib in Resources */,
 				4C952371271B21C900EF5D23 /* MainNavigationController.storyboard in Resources */,
 				4C92D795270DFFBC00CBB675 /* StackOverflowDetailTableViewCell.xib in Resources */,
@@ -472,6 +487,7 @@
 				4C92D7A9271486F000CBB675 /* NibLoadable.swift in Sources */,
 				4C92D79D2710180E00CBB675 /* StackOverFlowEmptyTableViewCell.swift in Sources */,
 				4C29C250270B7E46000D6059 /* ViewController.swift in Sources */,
+				4C95237C271B9E2000EF5D23 /* StackOverflowDetailViewController.swift in Sources */,
 				4C69688B270BFFBD000D1E27 /* StackOverflowBoundary.swift in Sources */,
 				4C69689A270DEC57000D1E27 /* StackOverflowTableViewController.swift in Sources */,
 				4C95236E271A4C8D00EF5D23 /* UINavigationController+Extensions.swift in Sources */,
