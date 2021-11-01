@@ -108,7 +108,6 @@ class StackOverflowTableViewController: UITableViewController {
         tableView.configureForDynamicHeightRows()
         tableView.sectionFooterHeight = 8
         tableView.sectionHeaderHeight = 0
-        tableView.bounces = false
         tableView.register(UINib(nibName: "StackOverFlowEmptyTableViewCell", bundle: .main),
                            forCellReuseIdentifier: "StackOverFlowEmptyTableViewCell")
         tableView.register(UINib(nibName: "StackOverflowDetailTableViewCell", bundle: .main),
