@@ -26,7 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func configureConstantAppearances() {
         let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor.primaryBlueColor
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
         UINavigationBar.appearance().tintColor = .white

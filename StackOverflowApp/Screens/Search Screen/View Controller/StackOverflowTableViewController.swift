@@ -47,10 +47,6 @@ class StackOverflowTableViewController: UITableViewController {
         configureUI()
     }
     
-    func f(c: Character, i: Int) -> (String, Double) {
-        return (String(c), Double(i))
-    }
-    
     // MARK: - StatusBarStyle
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -94,25 +90,32 @@ class StackOverflowTableViewController: UITableViewController {
     // MARK: - UITableViewDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        guard let dataModel = viewModel.dataModel(at: indexPath) else { return }
+        let detailScreen = UIStoryboard(name: "StackOverflowDetailScreen", bundle: .main)
+        if let viewController = detailScreen.instantiateInitialViewController() as? StackOverflowDetailViewController {
+            viewController.configure(with: dataModel)
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
     
     // MARK: - UI Configuration
     private func configureUI() {
         self.tableView.contentInsetAdjustmentBehavior = .never
-        self.tableView.contentInset.top = searchController.searchBar.frame.height + searchControllerExtraVerticalPadding()
         self.navigationItem.titleView = searchController.searchBar
+        self.navigationController?.setStatusBar(backgroundColor: UIColor.primaryBlueColor)
+        let statusBarHeight = navigationController?.statusBar()?.frame.height ?? .zero
+        let searchBarHeight = searchController.searchBar.frame.height
+        let navigationBarHeight = navigationController?.navigationBar.frame.height ?? .zero
+        let padding: CGFloat = 10
+        tableView.contentInset.top = statusBarHeight + searchBarHeight + padding - navigationBarHeight
         tableView.configureForDynamicHeightRows()
+        tableView.sectionHeaderTopPadding = .zero
         tableView.sectionFooterHeight = 8
         tableView.sectionHeaderHeight = 0
         tableView.register(UINib(nibName: "StackOverFlowEmptyTableViewCell", bundle: .main),
                            forCellReuseIdentifier: "StackOverFlowEmptyTableViewCell")
         tableView.register(UINib(nibName: "StackOverflowDetailTableViewCell", bundle: .main),
                            forCellReuseIdentifier: "StackOverflowDetailTableViewCell")
-        self.navigationController?.setStatusBar(backgroundColor: UIColor.primaryBlueColor)
     }
     
     // MARK: - UITableViewCells Configuration
@@ -120,6 +123,7 @@ class StackOverflowTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "StackOverFlowEmptyTableViewCell") as? StackOverFlowEmptyTableViewCell else { return UITableViewCell() }
         cell.selectionStyle = .none
         cell.configure(with: viewModel.emptyStateMessage)
+        tableView.separatorStyle = .none
         return cell
     }
     
@@ -128,13 +132,14 @@ class StackOverflowTableViewController: UITableViewController {
               let cellViewModel = viewModel.cellViewModel(at: indexPath) else { return UITableViewCell() }
         cell.configure(with: cellViewModel)
         cell.accessoryType = .disclosureIndicator
-        
+        tableView.separatorStyle = .singleLine
         return cell
     }
     
     private func searchControllerExtraVerticalPadding() -> CGFloat {
         return searchController.searchBar.frame.height - (self.navigationController?.navigationBar.frame.height ?? 0)
     }
+
 }
 
 // MARK: - StackOverflowSearchViewModelDelegate

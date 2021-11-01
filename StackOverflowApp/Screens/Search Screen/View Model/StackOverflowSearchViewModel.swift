@@ -77,6 +77,15 @@ class StackOverflowSearchViewModel {
         }
     }
     
+    func dataModel(at indexPath: IndexPath) -> StackOverflowDataModalable? {
+        guard let rowType = identifier(for: indexPath) else { return nil }
+        switch rowType {
+        case .tagResultRow:
+            return dataModels?[safe: indexPath.section]
+        default: return nil
+        }
+    }
+    
     func visibleRows(for section: Int) -> [RowType] {
         var rows: [RowType] = []
         guard let sectionType = identifier(for: section) else { return rows }

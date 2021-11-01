@@ -29,7 +29,7 @@ class StackOverflowDetailViewController: UIViewController {
     }
     
     // MARK: - Mutators
-    private func configure(with dataModel: StackOverflowDataModalable) {
+    func configure(with dataModel: StackOverflowDataModalable) {
         self.dataModel = dataModel
     }
     
