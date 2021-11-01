@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = storyboard.instantiateInitialViewController() as? UINavigationController
         let resultsController = StackOverflowTableViewController()
         navigationController?.viewControllers = [resultsController]
-        navigationController?.setNavigationBarHidden(true, animated: false)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         configureConstantAppearances()

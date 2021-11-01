@@ -20,6 +20,7 @@ class StackOverflowTableViewController: UITableViewController {
         searchController.searchBar.barTintColor = UIColor.primaryBlueColor
         searchController.searchBar.tintColor = .white
         searchController.searchBar.searchTextField.backgroundColor = .white
+        searchController.hidesNavigationBarDuringPresentation = false
         
         let centeredParagrahStyle = NSMutableParagraphStyle()
         centeredParagrahStyle.alignment = .center
@@ -87,7 +88,7 @@ class StackOverflowTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let rowType = viewModel.identifier(for: indexPath) else { return UITableView.automaticDimension }
-        return rowType == .emptyRow ? calculateEmptyStatusViewHeight() : UITableView.automaticDimension
+        return rowType == .emptyRow ? tableView.frame.height : UITableView.automaticDimension
     }
 
     // MARK: - UITableViewDelegate
@@ -95,10 +96,15 @@ class StackOverflowTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     // MARK: - UI Configuration
     private func configureUI() {
-        // add loading indicator
-        tableView.tableHeaderView = searchController.searchBar
+        self.tableView.contentInsetAdjustmentBehavior = .never
+        self.tableView.contentInset.top = searchController.searchBar.frame.height + searchControllerExtraVerticalPadding()
+        self.navigationItem.titleView = searchController.searchBar
         tableView.configureForDynamicHeightRows()
         tableView.sectionFooterHeight = 8
         tableView.sectionHeaderHeight = 0
@@ -127,9 +133,8 @@ class StackOverflowTableViewController: UITableViewController {
         return cell
     }
     
-    private func calculateEmptyStatusViewHeight() -> CGFloat {
-        return tableView.frame.height -
-        (tableView.tableHeaderView?.frame.height ?? 0)
+    private func searchControllerExtraVerticalPadding() -> CGFloat {
+        return searchController.searchBar.frame.height - (self.navigationController?.navigationBar.frame.height ?? 0)
     }
 }
 
